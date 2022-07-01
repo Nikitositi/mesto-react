@@ -3,10 +3,9 @@ import api from "../utils/Api";
 import Card from "./Card";
 
 function Main(props) {
-  const [userName, setUserName] = useState({});
-  const [userDescription, setUserDescription] = useState({});
-  const [userAvatar, setUserAvatar] = useState({});
-
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -18,7 +17,7 @@ function Main(props) {
         setUserDescription(userData);
       })
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   useEffect(() => {
     api
@@ -27,7 +26,7 @@ function Main(props) {
         setCards(cardsData);
       })
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   return (
     <main className="content">
