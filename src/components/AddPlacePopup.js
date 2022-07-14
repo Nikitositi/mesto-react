@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup(props) {
@@ -44,7 +44,7 @@ function AddPlacePopup(props) {
         placeholder="Название"
         minLength="2"
         maxLength="30"
-        value={cardName ? cardName : ""}
+        value={cardName || ""}
         onChange={handleCardNameChange}
         required
       />
@@ -55,7 +55,7 @@ function AddPlacePopup(props) {
         name="link"
         id="card-link-input"
         placeholder="Ссылка на картинку"
-        value={cardLink ? cardLink : ""}
+        value={cardLink || ""}
         onChange={handleCardLinkChange}
         required
       />
