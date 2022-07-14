@@ -1,9 +1,16 @@
 import React from "react";
 
 function ImagePopup(props) {
+  function handleOverlayClick(evt) {
+    if (evt.target === evt.currentTarget) {
+      props.onClose();
+    }
+  }
+
   return (
     <div
       className={`popup popup_type_image ${props.isOpen ? "popup_opened" : ""}`}
+      onClick={handleOverlayClick}
     >
       <div className="popup__wrapper">
         <figure className="popup__figure">

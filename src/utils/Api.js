@@ -40,6 +40,7 @@ class Api {
       }),
     }).then(this._checkResponseStatus);
   }
+  
   deleteCard(id) {
     return fetch(this._url + "/cards/" + id, {
       method: "DELETE",
@@ -53,7 +54,6 @@ class Api {
     } else {
       this._method = "DELETE";
     }
-    console.log("/cards/likes/" + id);
     return fetch(this._url + "/cards/likes/" + id, {
       method: this._method,
       headers: this._headers,
@@ -65,7 +65,7 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: data.avatarlink,
+        avatar: data,
       }),
     }).then(this._checkResponseStatus);
   }
