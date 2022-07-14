@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -27,9 +27,12 @@ function App() {
 
   // Загрузка информации о юзере
   useEffect(() => {
-    api.getData("/users/me").then((userData) => {
-      setCurrentUser(userData);
-    });
+    api
+      .getData("/users/me")
+      .then((userData) => {
+        setCurrentUser(userData);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   // Загрузка карточек
